@@ -9,6 +9,37 @@ Version: 0.3.0
 
 from converters.conversion_engine import convert
 
+UNIT_DISPLAY = {
+    "length": {
+        "m": "Meter",
+        "km": "Kilometer",
+        "cm": "Centimeter",
+        "mm": "Millimeter",
+        "ft": "Foot",
+        "yd": "Yard",
+        "mi": "Mile",
+        "nmi": "Nautical Mile",
+    },
+
+    "mass": {
+        "kg": "Kilogram",
+        "g": "Gram",
+        "mg": "Milligram",
+        "lb": "Pound",
+        "oz": "Ounce",
+        "slug": "Slug",
+        "t": "Metric Ton",
+    },
+
+    "force": {
+        "n": "Newton",
+        "kn": "Kilonewton",
+        "mn": "Meganewton",
+        "lbf": "Pound Force",
+        "dyn": "Dyne",
+    }
+}
+
 
 def conversion_menu() -> None:
     """
@@ -31,13 +62,22 @@ def conversion_menu() -> None:
         choice = input("Select a category: ").strip()
 
         if choice == "1":
-            length_conversion_menu()
+            conversion_screen(
+                "LENGTH CONVERTER",
+                "length"
+            )
 
         elif choice == "2":
-            mass_conversion_menu()
+            conversion_screen(
+                "MASS CONVERTER",
+                "mass"
+            )
 
         elif choice == "3":
-            force_conversion_menu()
+            conversion_screen(
+                "FORCE CONVERTER",
+                "force"
+            )
 
         elif choice == "0":
             break
@@ -46,121 +86,43 @@ def conversion_menu() -> None:
             print("\nInvalid selection.")
 
 
-def length_conversion_menu() -> None:
+def conversion_screen(title: str, category: str) -> None:
     """
-    Display the length conversion menu.
+    Generic conversion interface.
     """
 
     print()
     print("=" * 40)
-    print("LENGTH CONVERTER".center(40))
+    print(title.center(40))
     print("=" * 40)
 
     print("\nAvailable Units")
     print("----------------")
-    print("m    - Meter")
-    print("km   - Kilometer")
-    print("cm   - Centimeter")
-    print("mm   - Millimeter")
-    print("ft   - Foot")
-    print("in   - Inch")
-    print("yd   - Yard")
-    print("mi   - Mile")
-    print("nmi  - Nautical Mile")
+
+    for unit, name in UNIT_DISPLAY[category].items():
+
+        print(f"{unit:<5} - {name}")
 
     print()
 
     value = float(input("Enter value: "))
+
     from_unit = input("From unit: ").strip().lower()
+
     to_unit = input("To unit: ").strip().lower()
 
     result = convert(
         value,
-        "length",
+        category,
         from_unit,
         to_unit
     )
 
     print()
-    print(f"Result:")
+    print("Result:")
     print(f"{value} {from_unit} = {result:.4f} {to_unit}")
 
     input("\nPress Enter to continue...")
 
 
-def mass_conversion_menu() -> None:
-    """
-    Display the mass conversion menu.
-    """
 
-    print()
-    print("=" * 40)
-    print("MASS CONVERTER".center(40))
-    print("=" * 40)
-
-    print("\nAvailable Units")
-    print("----------------")
-    print("kg   - Kilogram")
-    print("g    - Gram")
-    print("mg   - Milligram")
-    print("lb   - Pound")
-    print("oz   - Ounce")
-    print("slug - Slug")
-    print("t    - Metric Ton")
-
-    print()
-
-    value = float(input("Enter value: "))
-    from_unit = input("From unit: ").strip().lower()
-    to_unit = input("To unit: ").strip().lower()
-
-    result = convert(
-        value,
-        "mass",
-        from_unit,
-        to_unit
-    )
-
-    print()
-    print(f"Result:")
-    print(f"{value} {from_unit} = {result:.4f} {to_unit}")
-
-    input("\nPress Enter to continue...")
-
-
-def force_conversion_menu() -> None:
-    """
-    Display the force conversion menu.
-    """
-
-    print()
-    print("=" * 40)
-    print("FORCE CONVERTER".center(40))
-    print("=" * 40)
-
-    print("\nAvailable Units")
-    print("----------------")
-    print("n    - Newton")
-    print("kn   - Kilonewton")
-    print("mn   - Meganewton")
-    print("lbf  - Pound Force")
-    print("dyn  - Dyne")
-
-    print()
-
-    value = float(input("Enter value: "))
-    from_unit = input("From unit: ").strip().lower()
-    to_unit = input("To unit: ").strip().lower()
-
-    result = convert(
-        value,
-        "force",
-        from_unit,
-        to_unit
-    )
-
-    print()
-    print(f"Result:")
-    print(f"{value} {from_unit} = {result:.4f} {to_unit}")
-
-    input("\nPress Enter to continue...")
