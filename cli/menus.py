@@ -1,36 +1,32 @@
 """
-AeroConvert Command Line Interface
+AeroConvert Main Menu
 
-Handles user menus and interaction.
+Handles the main application navigation.
 
 Author: Braden Moody
-Version: 0.1.0
+Version: 0.3.0
 """
 
-APP_NAME = "AeroConvert"
-VERSION = "0.1.0"
-AUTHOR = "Braden Moody"
+from cli.conversion_menu import conversion_menu
+
 
 def print_header() -> None:
     """
-    Display the AeroConvert application header.
+    Display application header.
     """
 
     print("=" * 50)
-    print(APP_NAME.center(50))
-    print(f"Version {VERSION}".center(50))
+    print("AeroConvert".center(50))
+    print("Version 0.3.0".center(50))
     print("=" * 50)
 
 
 def print_menu() -> None:
     """
-    Display the main menu.
+    Display main menu options.
     """
 
     print()
-    print("MAIN MENU".center(50))
-    print()
-
     print("[1] Unit Conversions")
     print("[2] Aircraft Performance")
     print("[3] Rocket Propulsion")
@@ -39,40 +35,54 @@ def print_menu() -> None:
     print("[6] Engineering Database")
     print("[7] About")
     print("[0] Exit")
-
     print()
 
 
 def handle_menu_choice(choice: str) -> None:
     """
-    Process the user's menu selection.
+    Handle user menu selections.
     """
 
     if choice == "1":
-        print("\nOpening Unit Conversions...")
+
+        conversion_menu()
+
 
     elif choice == "2":
-        print("\nOpening Aircraft Performance...")
+
+        print("Aircraft Performance coming soon!")
+
 
     elif choice == "3":
-        print("\nOpening Rocket Propulsion...")
+
+        print("Rocket Propulsion coming soon!")
+
 
     elif choice == "4":
-        print("\nOpening Orbital Mechanics...")
+
+        print("Orbital Mechanics coming soon!")
+
 
     elif choice == "5":
-        print("\nOpening Standard Atmosphere")
+
+        print("Standard Atmosphere coming soon!")
+
 
     elif choice == "6":
-        print("\nOpening Engineering Database")
+
+        print("Engineering Database coming soon!")
+
 
     elif choice == "7":
-        print("\nAeroConvert")
-        print(f"Version : {VERSION}")
-        print(f"Author: {AUTHOR}")
+
+        print("AeroConvert created by Braden Moody")
+
 
     elif choice == "0":
-        print("\nThank you for using AeroConvert!")
+
+        print("Exiting AeroConvert...")
+
 
     else:
-        print("\nInvalid Selection.")
+
+        print("Invalid selection.")

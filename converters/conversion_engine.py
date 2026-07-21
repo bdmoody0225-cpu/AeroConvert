@@ -29,9 +29,18 @@ MASS_UNITS = {
     "t": 1000.0
 }
 
+FORCE_UNITS = {
+    "n": 1.0,
+    "kn": 1000.0,
+    "mn": 1_000_000.0,
+    "lbf": 4.4482216152605,
+    "dyn": 0.00001
+}
+
 UNIT_DATABASE = {
     "length": LENGTH_UNITS,
-    "mass": MASS_UNITS
+    "mass": MASS_UNITS,
+    "force": FORCE_UNITS
 }
 
 def convert_length(value: float, from_unit: str, to_unit: str) -> float:

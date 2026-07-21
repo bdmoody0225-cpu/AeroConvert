@@ -23,9 +23,11 @@ def main() -> None:
 
     print_menu()
 
-    choice = input("Select an option:")
+    choice = input("Select an option:").strip()
 
     handle_menu_choice(choice)
+
+    input("\nPress Enter to return to the Main Menu...")
 
 
 if __name__ == "__main__":
