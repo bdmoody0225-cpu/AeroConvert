@@ -19,8 +19,19 @@ LENGTH_UNITS = {
     "nmi": 1852.0
 }
 
+MASS_UNITS = {
+    "kg": 1.0,
+    "g": 0.001,
+    "mg": 0.000001,
+    "lb": 0.45359237,
+    "oz": 0.028349523125,
+    "slug": 14.59390294,
+    "t": 1000.0
+}
+
 UNIT_DATABASE = {
-    "length": LENGTH_UNITS
+    "length": LENGTH_UNITS,
+    "mass": MASS_UNITS
 }
 
 def convert_length(value: float, from_unit: str, to_unit: str) -> float:

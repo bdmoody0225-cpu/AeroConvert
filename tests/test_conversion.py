@@ -68,4 +68,26 @@ def test_invalid_unit():
             "m"
         )
 
-        
+
+def test_kilogram_to_pound():
+
+    result = convert(
+        1,
+        "mass",
+        "kg",
+        "lb"
+    )
+
+    assert round(result, 5) == 2.20462
+
+
+def test_pound_to_kilogram():
+
+    result = convert(
+        2.20462,
+        "mass",
+        "lb",
+        "kg"
+    )
+
+    assert round(result, 5) == 1.0
