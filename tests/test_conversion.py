@@ -628,6 +628,132 @@ def test_watt_to_kilowatt():
     assert result == 1.0
 
 # ==========================================================
+# TIME TESTS
+# ==========================================================
+
+def test_minute_to_second():
+    """
+    Test conversion from minutes to seconds.
+    """
+
+    result = convert(
+        1,
+        "time",
+        "min",
+        "s"
+    )
+
+    assert result == 60.0
+
+
+def test_hour_to_second():
+    """
+    Test conversion from hours to seconds.
+    """
+
+    result = convert(
+        1,
+        "time",
+        "hr",
+        "s"
+    )
+
+    assert result == 3600.0
+
+
+def test_day_to_hour():
+    """
+    Test conversion from days to hours.
+    """
+
+    result = convert(
+        1,
+        "time",
+        "day",
+        "hr"
+    )
+
+    assert result == 24.0
+
+
+def test_millisecond_to_second():
+    """
+    Test conversion from milliseconds to seconds.
+    """
+
+    result = convert(
+        1000,
+        "time",
+        "ms",
+        "s"
+    )
+
+    assert result == 1.0
+
+# ==========================================================
+# ANGLE TESTS
+# ==========================================================
+
+def test_degree_to_radian():
+    """
+    Test conversion from degrees to radians.
+    """
+
+    result = convert(
+        180,
+        "angle",
+        "deg",
+        "rad"
+    )
+
+    assert round(result, 6) == 3.141593
+
+
+def test_radian_to_degree():
+    """
+    Test conversion from radians to degrees.
+    """
+
+    result = convert(
+        3.141592653589793,
+        "angle",
+        "rad",
+        "deg"
+    )
+
+    assert round(result, 1) == 180.0
+
+
+def test_revolution_to_radian():
+    """
+    Test conversion from revolutions to radians.
+    """
+
+    result = convert(
+        1,
+        "angle",
+        "rev",
+        "rad"
+    )
+
+    assert round(result, 6) == 6.283185
+
+
+def test_degree_to_revolution():
+    """
+    Test conversion from degrees to revolutions.
+    """
+
+    result = convert(
+        360,
+        "angle",
+        "deg",
+        "rev"
+    )
+
+    assert round(result, 2) == 1.0
+
+# ==========================================================
 # ERROR HANDLING TESTS
 # ==========================================================
 

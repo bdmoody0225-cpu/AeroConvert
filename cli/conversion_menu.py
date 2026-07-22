@@ -104,6 +104,20 @@ UNIT_DISPLAY = {
         "kw": "Kilowatt",
         "mw": "Megawatt",
         "hp": "Horsepower"
+    },
+
+    "time": {
+        "s": "Second",
+        "ms": "Millisecond",
+        "min": "Minute",
+        "hr": "Hour",
+        "day": "Day"
+    },
+
+    "angle": {
+        "rad": "Radian",
+        "deg": "Degree",
+        "rev": "Revolution"
     }
 
 }
@@ -132,6 +146,8 @@ def conversion_menu() -> None:
         print("[9] Density")
         print("[10] Energy")
         print("[11] Power")
+        print("[12] Time")
+        print("[13] Angle")
         print("[0] Back")
         print()
 
@@ -201,6 +217,18 @@ def conversion_menu() -> None:
             conversion_screen(
                 "POWER CONVERTER",
                 "power"
+            )
+
+        elif choice == "12":
+            conversion_screen(
+                "TIME CONVERTER",
+                "time"
+            )
+
+        elif choice == "13":
+            conversion_screen(
+                "ANGLE CONVERTER",
+                "angle"
             )
         
         elif choice == "0":

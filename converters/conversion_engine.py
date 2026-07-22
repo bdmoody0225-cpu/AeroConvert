@@ -97,6 +97,20 @@ POWER_UNITS = {
     "hp": 745.699872
 }
 
+TIME_UNITS = {
+    "s": 1.0,
+    "ms": 0.001,
+    "min": 60.0,
+    "hr": 3600.0,
+    "day": 86400.0
+}
+
+ANGLE_UNITS = {
+    "rad": 1.0,
+    "deg": 0.017453292519943295,
+    "rev": 6.283185307179586
+}
+
 UNIT_DATABASE = {
     "length": LENGTH_UNITS,
     "mass": MASS_UNITS,
@@ -107,7 +121,9 @@ UNIT_DATABASE = {
     "volume": VOLUME_UNITS,
     "density": DENSITY_UNITS,
     "energy": ENERGY_UNITS,
-    "power": POWER_UNITS
+    "power": POWER_UNITS,
+    "time": TIME_UNITS,
+    "angle": ANGLE_UNITS
 }
 
 def convert_length(value: float, from_unit: str, to_unit: str) -> float:
