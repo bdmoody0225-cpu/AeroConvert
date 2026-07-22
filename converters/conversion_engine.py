@@ -111,6 +111,20 @@ ANGLE_UNITS = {
     "rev": 6.283185307179586
 }
 
+ACCELERATION_UNITS = {
+    "m/s2": 1.0,
+    "km/s2": 1000.0,
+    "ft/s2": 0.3048,
+    "g": 9.80665
+}
+
+FREQUENCY_UNITS = {
+    "hz": 1.0,
+    "khz": 1000.0,
+    "mhz": 1000000.0,
+    "rpm": 1 / 60
+}
+
 UNIT_DATABASE = {
     "length": LENGTH_UNITS,
     "mass": MASS_UNITS,
@@ -123,7 +137,9 @@ UNIT_DATABASE = {
     "energy": ENERGY_UNITS,
     "power": POWER_UNITS,
     "time": TIME_UNITS,
-    "angle": ANGLE_UNITS
+    "angle": ANGLE_UNITS,
+    "acceleration": ACCELERATION_UNITS,
+    "frequency": FREQUENCY_UNITS
 }
 
 def convert_length(value: float, from_unit: str, to_unit: str) -> float:

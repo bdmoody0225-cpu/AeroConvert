@@ -118,6 +118,20 @@ UNIT_DISPLAY = {
         "rad": "Radian",
         "deg": "Degree",
         "rev": "Revolution"
+    },
+
+    "acceleration": {
+        "m/s2": "Meters per Second squared",
+        "km/s2": "Kilometers per Second squared",
+        "ft/s2": "Feet per Second squared",
+        "g": "Standard Gravity"
+    },
+
+    "frequency": {
+        "hz": "Hertz",
+        "khz": "Kilohertz",
+        "mhz": "Megahertz",
+        "rpm": "Revolutions per Minute"
     }
 
 }
@@ -148,6 +162,8 @@ def conversion_menu() -> None:
         print("[11] Power")
         print("[12] Time")
         print("[13] Angle")
+        print("[14] Acceleration")
+        print("[15] Frequency")
         print("[0] Back")
         print()
 
@@ -230,6 +246,18 @@ def conversion_menu() -> None:
                 "ANGLE CONVERTER",
                 "angle"
             )
+
+        elif choice == "14":
+            conversion_screen(
+                "ACCELERATION CONVERTER",
+                "acceleration"
+            )
+
+        elif choice == "15":
+            conversion_screen(
+                "FREQUENCY CONVERTER",
+                "frequency"
+            )
         
         elif choice == "0":
             break
@@ -284,6 +312,3 @@ def conversion_screen(title: str, category: str) -> None:
     print(f"{value} {from_unit} = {result:.4f} {to_unit}")
 
     input("\nPress Enter to continue...")
-
-
-

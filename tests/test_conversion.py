@@ -754,6 +754,135 @@ def test_degree_to_revolution():
     assert round(result, 2) == 1.0
 
 # ==========================================================
+# ACCELERATION TESTS
+# ==========================================================
+
+def test_g_to_mps2():
+    """
+    Test conversion from standard gravity to meters per second squared.
+    """
+
+    result = convert(
+        1,
+        "acceleration",
+        "g",
+        "m/s2"
+    )
+
+    assert result == 9.80665
+
+
+def test_ftps2_to_mps2():
+    """
+    Test conversion from feet per second squared
+    to meters per second squared.
+    """
+
+    result = convert(
+        1,
+        "acceleration",
+        "ft/s2",
+        "m/s2"
+    )
+
+    assert round(result, 4) == 0.3048
+
+
+def test_kmps2_to_mps2():
+    """
+    Test conversion from kilometers per second squared
+    to meters per second squared.
+    """
+
+    result = convert(
+        1,
+        "acceleration",
+        "km/s2",
+        "m/s2"
+    )
+
+    assert result == 1000.0
+
+
+def test_mps2_to_g():
+    """
+    Test conversion from meters per second squared
+    to standard gravity.
+    """
+
+    result = convert(
+        9.80665,
+        "acceleration",
+        "m/s2",
+        "g"
+    )
+
+    assert result == 1.0
+
+# ==========================================================
+# FREQUENCY TESTS
+# ==========================================================
+
+def test_khz_to_hz():
+    """
+    Test conversion from kilohertz to hertz.
+    """
+
+    result = convert(
+        1,
+        "frequency",
+        "khz",
+        "hz"
+    )
+
+    assert result == 1000.0
+
+
+def test_mhz_to_hz():
+    """
+    Test conversion from megahertz to hertz.
+    """
+
+    result = convert(
+        1,
+        "frequency",
+        "mhz",
+        "hz"
+    )
+
+    assert result == 1_000_000.0
+
+
+def test_rpm_to_hz():
+    """
+    Test conversion from RPM to Hertz.
+    """
+
+    result = convert(
+        60,
+        "frequency",
+        "rpm",
+        "hz"
+    )
+
+    assert result == 1.0
+
+
+def test_hz_to_rpm():
+    """
+    Test conversion from Hertz to RPM.
+    """
+
+    result = convert(
+        1,
+        "frequency",
+        "hz",
+        "rpm"
+    )
+
+    assert result == 60.0
+
+# ==========================================================
 # ERROR HANDLING TESTS
 # ==========================================================
 
