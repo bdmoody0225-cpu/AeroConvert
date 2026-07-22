@@ -53,7 +53,16 @@ UNIT_DISPLAY = {
         "bar": "Bar",
         "atm": "Standard Atmosphere",
         "psi": "Pounds per Square Inch"
+    },
+
+    "velocity": {
+        "m/s": "Meters per Second",
+        "km/h": "Kilometers per Hour",
+        "ft/s": "Feet per Second",
+        "mph": "Miles per Hour",
+        "kt": "Knots"
     }
+
 }
 
 
@@ -74,6 +83,7 @@ def conversion_menu() -> None:
         print("[3] Force")
         print("[4] Temperature")
         print("[5] Pressure")
+        print("[6] Velocity")
         print("[0] Back")
         print()
 
@@ -107,6 +117,12 @@ def conversion_menu() -> None:
             conversion_screen(
                 "PRESSURE CONVERTER",
                 "pressure"
+            )
+
+        elif choice == "6":
+            conversion_screen(
+                "VELOCITY CONVERTER",
+                "velocity"
             )
         
         elif choice == "0":

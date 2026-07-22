@@ -46,11 +46,20 @@ PRESSURE_UNITS = {
     "psi": 6894.757293168
 }
 
+VELOCITY_UNITS = {
+    "m/s": 1.0,
+    "km/h": 0.2777777778,
+    "ft/s": 0.3048,
+    "mph": 0.44704,
+    "kt": 0.5144444444
+}
+
 UNIT_DATABASE = {
     "length": LENGTH_UNITS,
     "mass": MASS_UNITS,
     "force": FORCE_UNITS,
-    "pressure": PRESSURE_UNITS
+    "pressure": PRESSURE_UNITS,
+    "velocity": VELOCITY_UNITS
 }
 
 def convert_length(value: float, from_unit: str, to_unit: str) -> float:

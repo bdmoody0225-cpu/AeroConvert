@@ -279,6 +279,66 @@ def test_psi_to_pascal():
     assert round(result, 3) == 6894.757
 
 # ==========================================================
+# VELOCITY TESTS
+# ==========================================================
+
+def test_mph_to_kph():
+    """
+    Test conversion from meters per second to kilometers per hour.
+    """
+
+    result = convert(
+        10,
+        "velocity",
+        "m/s",
+        "km/h"
+    )
+
+    assert round(result, 1) == 36.0
+
+def test_kph_to_mps():
+    """
+    Test conversion from kilometers per hour ro meters per second.
+    """
+
+    result = convert(
+        36,
+        "velocity",
+        "km/h",
+        "m/s"
+    )
+
+    assert round(result, 1) == 10.0
+
+def test_mph_to_knots():
+    """
+    Test conversion from miles per hour to knots.
+    """
+
+    result = convert(
+        100,
+        "velocity",
+        "mph",
+        "kt"
+    )
+
+    assert round(result, 2) == 86.90
+
+def test_knots_to_mps():
+    """
+    Test conversion from knots to meters per second.
+    """
+
+    result = convert(
+        100,
+        "velocity",
+        "kt",
+        "m/s"
+    )
+
+    assert round(result, 3) == 51.444
+
+# ==========================================================
 # ERROR HANDLING TESTS
 # ==========================================================
 
