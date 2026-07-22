@@ -435,6 +435,73 @@ def test_gallon_to_liter():
     assert round(result, 6) == 3.785412
 
 # ==========================================================
+# DENSITY TESTS
+# ==========================================================
+
+def test_g_cm3_to_kg_m3():
+    """
+    Test conversion from grams per cubic centimeter
+    to kilograms per cubic meter.
+    """
+
+    result = convert(
+        1,
+        "density",
+        "g/cm3",
+        "kg/m3"
+    )
+
+    assert result == 1000.0
+
+
+def test_kg_m3_to_g_cm3():
+    """
+    Test conversion from kilograms per cubic meter
+    to grams per cubic centimeter.
+    """
+
+    result = convert(
+        1000,
+        "density",
+        "kg/m3",
+        "g/cm3"
+    )
+
+    assert result == 1.0
+
+
+def test_lb_ft3_to_kg_m3():
+    """
+    Test conversion from pounds per cubic foot
+    to kilograms per cubic meter.
+    """
+
+    result = convert(
+        1,
+        "density",
+        "lb/ft3",
+        "kg/m3"
+    )
+
+    assert round(result, 5) == 16.01846
+
+
+def test_slug_ft3_to_kg_m3():
+    """
+    Test conversion from slugs per cubic foot
+    to kilograms per cubic meter.
+    """
+
+    result = convert(
+        1,
+        "density",
+        "slug/ft3",
+        "kg/m3"
+    )
+
+    assert round(result, 3) == 515.379
+
+# ==========================================================
 # ERROR HANDLING TESTS
 # ==========================================================
 

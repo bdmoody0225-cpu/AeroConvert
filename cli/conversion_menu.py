@@ -81,6 +81,13 @@ UNIT_DISPLAY = {
         "ft3": "Cubic Foot",
         "in3": "Cubic Inch",
         "gal": "Gallon"
+    },
+
+    "density": {
+        "kg/m3": "Kilograms per Cubic meter",
+        "g/cm3": "Grams per Cubic centimeter",
+        "lb/ft3": "Pounds per Cubic foot",
+        "slug/ft3": "Slugs per Cubic foot"
     }
 
 }
@@ -106,6 +113,7 @@ def conversion_menu() -> None:
         print("[6] Velocity")
         print("[7] Area")
         print("[8] Volume")
+        print("[9] Density")
         print("[0] Back")
         print()
 
@@ -157,6 +165,12 @@ def conversion_menu() -> None:
             conversion_screen(
                 "VOLUME CONVERTER",
                 "volume"
+            )
+
+        elif choice == "9":
+            conversion_screen(
+                "DENSITY CONVERTER",
+                "density"
             )
         
         elif choice == "0":

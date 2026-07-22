@@ -74,6 +74,13 @@ VOLUME_UNITS = {
     "gal": 0.003785411784
 }
 
+DENSITY_UNITS = {
+    "kg/m3": 1.0,
+    "g/cm3": 1000.0,
+    "lb/ft3": 16.01846337,
+    "slug/ft3": 515.378818
+}
+
 UNIT_DATABASE = {
     "length": LENGTH_UNITS,
     "mass": MASS_UNITS,
@@ -81,7 +88,8 @@ UNIT_DATABASE = {
     "pressure": PRESSURE_UNITS,
     "velocity": VELOCITY_UNITS,
     "area": AREA_UNITS,
-    "volume": VOLUME_UNITS
+    "volume": VOLUME_UNITS,
+    "density": DENSITY_UNITS
 }
 
 def convert_length(value: float, from_unit: str, to_unit: str) -> float:
