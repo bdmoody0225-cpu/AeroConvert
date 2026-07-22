@@ -44,6 +44,15 @@ UNIT_DISPLAY = {
         "c": "Celsius",
         "f": "Farenheit",
         "k": "Kelvin"
+    },
+
+    "pressure": {
+        "pa": "Pascal",
+        "kpa": "Kilopascal",
+        "mpa": "Megapascal",
+        "bar": "Bar",
+        "atm": "Standard Atmosphere",
+        "psi": "Pounds per Square Inch"
     }
 }
 
@@ -64,6 +73,7 @@ def conversion_menu() -> None:
         print("[2] Mass")
         print("[3] Force")
         print("[4] Temperature")
+        print("[5] Pressure")
         print("[0] Back")
         print()
 
@@ -91,6 +101,12 @@ def conversion_menu() -> None:
             conversion_screen(
                 "TEMPERATURE CONVERTER",
                 "temperature"
+            )
+
+        elif choice == "5":
+            conversion_screen(
+                "PRESSURE CONVERTER",
+                "pressure"
             )
         
         elif choice == "0":

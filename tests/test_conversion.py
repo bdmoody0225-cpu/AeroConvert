@@ -218,7 +218,65 @@ def test_kelvin_to_celsius():
 
     assert result == 0.0
 
+# ==========================================================
+# PRESSURE TESTS
+# ==========================================================
 
+def test_pascal_to_kilopascal():
+    """
+    Test conversion from pascals to kilopascals.
+    """
+
+    result = convert(
+        1000,
+        "pressure",
+        "pa",
+        "kpa"
+    )
+
+    assert result == 1.0
+
+def test_bar_to_pascal():
+    """
+    Test conversion from bar to pascal.
+    """
+
+    result = convert(
+        1,
+        "pressure",
+        "bar",
+        "pa"
+    )
+
+    assert result == 100000.0
+
+def test_atm_to_psi():
+    """
+    Test conversion from atmospheres to psi.
+    """
+
+    result = convert(
+        1,
+        "pressure",
+        "atm",
+        "psi"
+    )
+
+    assert round(result, 4) == 14.6959
+
+def test_psi_to_pascal():
+    """
+    Test conversion from psi to pascals.
+    """
+
+    result = convert(
+        1,
+        "pressure",
+        "psi",
+        "pa"
+    )
+
+    assert round(result, 3) == 6894.757
 
 # ==========================================================
 # ERROR HANDLING TESTS

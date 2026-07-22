@@ -37,10 +37,20 @@ FORCE_UNITS = {
     "dyn": 0.00001
 }
 
+PRESSURE_UNITS = {
+    "pa": 1.0,
+    "kpa": 1000.0,
+    "mpa": 1000000.0,
+    "bar": 100000.0,
+    "atm": 101325.0,
+    "psi": 6894.757293168
+}
+
 UNIT_DATABASE = {
     "length": LENGTH_UNITS,
     "mass": MASS_UNITS,
-    "force": FORCE_UNITS
+    "force": FORCE_UNITS,
+    "pressure": PRESSURE_UNITS
 }
 
 def convert_length(value: float, from_unit: str, to_unit: str) -> float:
