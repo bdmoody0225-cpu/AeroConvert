@@ -81,6 +81,22 @@ DENSITY_UNITS = {
     "slug/ft3": 515.378818
 }
 
+ENERGY_UNITS = {
+    "j": 1.0,
+    "kj": 1000.0,
+    "mj": 1000000.0,
+    "cal": 4.184,
+    "btu": 1055.05585262,
+    "wh": 3600.0
+}
+
+POWER_UNITS = {
+    "w": 1.0,
+    "kw": 1000.0,
+    "mw": 1000000.0,
+    "hp": 745.699872
+}
+
 UNIT_DATABASE = {
     "length": LENGTH_UNITS,
     "mass": MASS_UNITS,
@@ -89,7 +105,9 @@ UNIT_DATABASE = {
     "velocity": VELOCITY_UNITS,
     "area": AREA_UNITS,
     "volume": VOLUME_UNITS,
-    "density": DENSITY_UNITS
+    "density": DENSITY_UNITS,
+    "energy": ENERGY_UNITS,
+    "power": POWER_UNITS
 }
 
 def convert_length(value: float, from_unit: str, to_unit: str) -> float:

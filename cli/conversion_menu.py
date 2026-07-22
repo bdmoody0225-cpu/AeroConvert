@@ -88,6 +88,22 @@ UNIT_DISPLAY = {
         "g/cm3": "Grams per Cubic centimeter",
         "lb/ft3": "Pounds per Cubic foot",
         "slug/ft3": "Slugs per Cubic foot"
+    },
+
+    "energy": {
+       "j": "Joule",
+       "kj": "Kilojoule",
+       "mj": "Megajoule",
+       "cal": "Calorie",
+       "btu": "British Thermal Unit",
+       "wh": "Watt hour" 
+    },
+
+    "power": {
+        "w": "Watt",
+        "kw": "Kilowatt",
+        "mw": "Megawatt",
+        "hp": "Horsepower"
     }
 
 }
@@ -114,6 +130,8 @@ def conversion_menu() -> None:
         print("[7] Area")
         print("[8] Volume")
         print("[9] Density")
+        print("[10] Energy")
+        print("[11] Power")
         print("[0] Back")
         print()
 
@@ -171,6 +189,18 @@ def conversion_menu() -> None:
             conversion_screen(
                 "DENSITY CONVERTER",
                 "density"
+            )
+
+        elif choice == "10":
+            conversion_screen(
+                "ENERGY CONVERTER",
+                "energy"
+            )
+
+        elif choice == "11":
+            conversion_screen(
+                "POWER CONVERTER",
+                "power"
             )
         
         elif choice == "0":

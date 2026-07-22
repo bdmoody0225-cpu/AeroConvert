@@ -502,6 +502,132 @@ def test_slug_ft3_to_kg_m3():
     assert round(result, 3) == 515.379
 
 # ==========================================================
+# ENERGY TESTS
+# ==========================================================
+
+def test_kilojoule_to_joule():
+    """
+    Test conversion from kilojoules to joules.
+    """
+
+    result = convert(
+        1,
+        "energy",
+        "kj",
+        "j"
+    )
+
+    assert result == 1000.0
+
+
+def test_joule_to_watt_hour():
+    """
+    Test conversion from joules to watt hours.
+    """
+
+    result = convert(
+        3600,
+        "energy",
+        "j",
+        "wh"
+    )
+
+    assert result == 1.0
+
+
+def test_btu_to_joule():
+    """
+    Test conversion from BTU to joules.
+    """
+
+    result = convert(
+        1,
+        "energy",
+        "btu",
+        "j"
+    )
+
+    assert round(result, 3) == 1055.056
+
+
+def test_calorie_to_joule():
+    """
+    Test conversion from calories to joules.
+    """
+
+    result = convert(
+        1,
+        "energy",
+        "cal",
+        "j"
+    )
+
+    assert round(result, 3) == 4.184
+
+# ==========================================================
+# POWER TESTS
+# ==========================================================
+
+def test_kilowatt_to_watt():
+    """
+    Test conversion from kilowatts to watts.
+    """
+
+    result = convert(
+        1,
+        "power",
+        "kw",
+        "w"
+    )
+
+    assert result == 1000.0
+
+
+def test_megawatt_to_watt():
+    """
+    Test conversion from megawatts to watts.
+    """
+
+    result = convert(
+        1,
+        "power",
+        "mw",
+        "w"
+    )
+
+    assert result == 1_000_000.0
+
+
+def test_horsepower_to_watt():
+    """
+    Test conversion from horsepower to watts.
+    """
+
+    result = convert(
+        1,
+        "power",
+        "hp",
+        "w"
+    )
+
+    assert round(result, 3) == 745.700
+
+
+def test_watt_to_kilowatt():
+    """
+    Test conversion from watts to kilowatts.
+    """
+
+    result = convert(
+        1000,
+        "power",
+        "w",
+        "kw"
+    )
+
+    assert result == 1.0
+
+# ==========================================================
 # ERROR HANDLING TESTS
 # ==========================================================
 
