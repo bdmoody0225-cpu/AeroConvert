@@ -7,6 +7,8 @@ Author: Braden Moody
 Version: 1.0.0
 """
 
+import math
+
 class Propulsion:
 
     """
@@ -64,4 +66,58 @@ class Propulsion:
             )
         )
 
+    def delta_v(
+            self,
+            exhaust_velocity,
+            initial_mass,
+            final_mass
+    ):
+
+        """
+        Calculate rocket delta-v.
+        """
+
+        return (
+            exhaust_velocity *
+            math.log(
+                initial_mass /
+                final_mass
+            )
+        )
+
+    def mass_ratio(
+            self,
+            initial_mass,
+            final_mass
+    ):
+
+        """
+        Calculate rocket mass ratio.
+        """
+
+        return (
+            initial_mass /
+            final_mass
+        )
+
+    def final_mass(
+            self,
+            initial_mass,
+            delta_v,
+            exhaust_velocity
+    ):
+
+        """
+        Calculate final mass after burn
+        """
+
+        return (
+            initial_mass /
+            math.exp(
+                delta_v /
+                exhaust_velocity
+            )
+        )
+
+    
     
