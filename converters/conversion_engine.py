@@ -54,12 +54,34 @@ VELOCITY_UNITS = {
     "kt": 0.5144444444
 }
 
+AREA_UNITS = {
+    "m2": 1.0,
+    "cm2": 0.0001,
+    "mm2": 0.000001,
+    "ft2": 0.09290304,
+    "in2": 0.00064516,
+    "yd2": 0.83612736,
+    "acre": 4046.8564224
+}
+
+VOLUME_UNITS = {
+    "m3": 1.0,
+    "cm3": 0.000001,
+    "L": 0.001,
+    "mL": 0.000001,
+    "ft3": 0.283168466,
+    "in3": 0.000016387064,
+    "gal": 0.003785411784
+}
+
 UNIT_DATABASE = {
     "length": LENGTH_UNITS,
     "mass": MASS_UNITS,
     "force": FORCE_UNITS,
     "pressure": PRESSURE_UNITS,
-    "velocity": VELOCITY_UNITS
+    "velocity": VELOCITY_UNITS,
+    "area": AREA_UNITS,
+    "volume": VOLUME_UNITS
 }
 
 def convert_length(value: float, from_unit: str, to_unit: str) -> float:

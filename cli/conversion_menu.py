@@ -61,6 +61,26 @@ UNIT_DISPLAY = {
         "ft/s": "Feet per Second",
         "mph": "Miles per Hour",
         "kt": "Knots"
+    },
+
+    "area": {
+        "m2": "Square Meter",
+        "cm2": "Square Centimeter",
+        "mm2": "Square Millimeter",
+        "ft2": "Square Foot",
+        "in2": "Square Inch",
+        "yd2": "Square Yard",
+        "acre": "Acre",
+    },
+
+    "volume": {
+        "m3": "Cubic Meter",
+        "cm3": "Cubic Centimeter",
+        "L": "Liter",
+        "mL": "Milliliter",
+        "ft3": "Cubic Foot",
+        "in3": "Cubic Inch",
+        "gal": "Gallon"
     }
 
 }
@@ -84,6 +104,8 @@ def conversion_menu() -> None:
         print("[4] Temperature")
         print("[5] Pressure")
         print("[6] Velocity")
+        print("[7] Area")
+        print("[8] Volume")
         print("[0] Back")
         print()
 
@@ -123,6 +145,18 @@ def conversion_menu() -> None:
             conversion_screen(
                 "VELOCITY CONVERTER",
                 "velocity"
+            )
+
+        elif choice == "7":
+            conversion_screen(
+                "AREA CONVERTER",
+                "area"
+            )
+
+        elif choice == "8":
+            conversion_screen(
+                "VOLUME CONVERTER",
+                "volume"
             )
         
         elif choice == "0":

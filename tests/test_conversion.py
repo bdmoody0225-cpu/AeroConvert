@@ -339,6 +339,102 @@ def test_knots_to_mps():
     assert round(result, 3) == 51.444
 
 # ==========================================================
+# AREA TESTS
+# ==========================================================
+
+def test_square_meter_to_square_centimeter():
+    """
+    Test conversion from square meters to square centimeters.
+    """
+
+    result = convert(
+        1,
+        "area",
+        "m2",
+        "cm2"
+    )
+
+    assert result == 10000.0
+
+
+def test_square_foot_to_square_meter():
+    """
+    Test conversion from square feet to square meters.
+    """
+
+    result = convert(
+        1,
+        "area",
+        "ft2",
+        "m2"
+    )
+
+    assert round(result, 8) == 0.09290304
+
+
+def test_acre_to_square_meter():
+    """
+    Test conversion from acres to square meters.
+    """
+
+    result = convert(
+        1,
+        "area",
+        "acre",
+        "m2"
+    )
+
+    assert round(result, 4) == 4046.8564
+
+# ==========================================================
+# VOLUME TESTS
+# ==========================================================
+
+def test_cubic_meter_to_liter():
+    """
+    Test conversion from cubic meters to liters.
+    """
+
+    result = convert(
+        1,
+        "volume",
+        "m3",
+        "L"
+    )
+
+    assert result == 1000.0
+
+
+def test_liter_to_milliliter():
+    """
+    Test conversion from liters to milliliters.
+    """
+
+    result = convert(
+        1,
+        "volume",
+        "L",
+        "mL"
+    )
+
+    assert round(result, 6) == 1000.0
+
+
+def test_gallon_to_liter():
+    """
+    Test conversion from gallons to liters.
+    """
+
+    result = convert(
+        1,
+        "volume",
+        "gal",
+        "L"
+    )
+
+    assert round(result, 6) == 3.785412
+
+# ==========================================================
 # ERROR HANDLING TESTS
 # ==========================================================
 
