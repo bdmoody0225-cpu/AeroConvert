@@ -85,6 +85,13 @@ def convert(
     Universal unit conversion function.
     """
 
+    if category == "temperature":
+        return convert_temperature(
+            value,
+            from_unit,
+            to_unit
+        )
+
     if category not in UNIT_DATABASE:
         raise ValueError(f"Unsupported category: {category}")
     
@@ -101,6 +108,45 @@ def convert(
     converted_value = base_value / units[to_unit]
 
     return converted_value
+
+def convert_temperature(
+        value: float,
+        from_unit: str,
+        to_unit: str
+) -> float:
+    
+    """
+    Convert temperature between Celsius,
+    Farenheit, and Kelvin
+    """
+
+    from_unit = from_unit.lower()
+    to_unit = to_unit.lower()
+
+    if from_unit == "c":
+        celsius = value
+
+    elif from_unit == "f":
+        celsius = (value - 32) * 5 / 9
+
+    elif from_unit == "k":
+        celsius = value - 273.15
+
+    else:
+        raise ValueError(f"Unsupported temperature unit: {from_unit}")
+    
+
+    if to_unit == "c":
+        return celsius
+    
+    elif to_unit == "f":
+        return (celsius * 9 / 5) + 32
+    
+    elif to_unit == "k":
+        return celsius + 273.15
+    
+    else: 
+        raise ValueError(f"Unsupported temperature unit: {to_unit}")
 
 
 if __name__ == "__main__":

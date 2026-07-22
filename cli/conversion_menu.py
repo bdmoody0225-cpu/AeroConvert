@@ -8,6 +8,7 @@ Version: 0.3.0
 """
 
 from converters.conversion_engine import convert
+from converters.conversion_engine import convert_temperature
 
 UNIT_DISPLAY = {
     "length": {
@@ -37,6 +38,12 @@ UNIT_DISPLAY = {
         "mn": "Meganewton",
         "lbf": "Pound Force",
         "dyn": "Dyne",
+    },
+
+    "temperature": {
+        "c": "Celsius",
+        "f": "Farenheit",
+        "k": "Kelvin"
     }
 }
 
@@ -56,6 +63,7 @@ def conversion_menu() -> None:
         print("[1] Length")
         print("[2] Mass")
         print("[3] Force")
+        print("[4] Temperature")
         print("[0] Back")
         print()
 
@@ -79,6 +87,12 @@ def conversion_menu() -> None:
                 "force"
             )
 
+        elif choice == "4":
+            conversion_screen(
+                "TEMPERATURE CONVERTER",
+                "temperature"
+            )
+        
         elif choice == "0":
             break
 
@@ -111,12 +125,21 @@ def conversion_screen(title: str, category: str) -> None:
 
     to_unit = input("To unit: ").strip().lower()
 
-    result = convert(
-        value,
-        category,
-        from_unit,
-        to_unit
-    )
+    if category == "temperature":
+
+        result = convert_temperature(
+            value,
+            from_unit,
+            to_unit
+        )
+
+    else:
+        result = convert(
+            value,
+            category,
+            from_unit,
+            to_unit
+        )
 
     print()
     print("Result:")

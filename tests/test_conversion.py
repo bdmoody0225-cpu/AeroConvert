@@ -158,6 +158,69 @@ def test_kilonewton_to_newton():
 
 
 # ==========================================================
+# TEMPERATURE TESTS
+# ==========================================================
+
+def test_celsius_to_farenheit():
+    """
+    Test conversion from celsius to farenheit.
+    """
+
+    result = convert(
+        0,
+        "temperature",
+        "c",
+        "f"
+    )
+
+    assert result == 32.0
+
+
+def test_farenheit_to_celsius():
+    """
+    Test conversion from farenheit to celsius.
+    """
+
+    result = convert(
+        32,
+        "temperature",
+        "f",
+        "c"
+    )
+
+    assert result == 0.0
+
+def test_celsius_to_kelvin():
+    """
+    Test conversion from celsius to kelvin.
+    """
+
+    result = convert(
+        100,
+        "temperature",
+        "c",
+        "k"
+    )
+
+    assert result == 373.15
+
+def test_kelvin_to_celsius():
+    """
+    Test conversion from kelvin to celsius.
+    """
+
+    result = convert(
+        273.15,
+        "temperature",
+        "k",
+        "c"
+    )
+
+    assert result == 0.0
+
+
+
+# ==========================================================
 # ERROR HANDLING TESTS
 # ==========================================================
 
