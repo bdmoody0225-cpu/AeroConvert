@@ -39,4 +39,27 @@ class Aircraft:
             lift_coefficient *
             wing_area
         )
+
+    def drag(
+            self,
+            altitude: float,
+            velocity: float,
+            drag_coefficient: float,
+            wing_area: float,
+    ) -> float:
+        """
+        Calculate drag force.
+        """
+
+        dynamic_pressure = self.aero.dynamic_pressure(
+            altitude,
+            velocity
+        )
+
+        return (
+            dynamic_pressure *
+            drag_coefficient *
+            wing_area
+        )
+
     
