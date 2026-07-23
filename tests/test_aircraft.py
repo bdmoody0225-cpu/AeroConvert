@@ -26,4 +26,14 @@ def test_drag():
     )
 
     assert round(result, 1) == 3675.0
-    
+
+def test_lift_to_drag_ratio():
+
+    aircraft = Aircraft()
+
+    result = aircraft.lift_to_drag_ratio(
+        150000,
+        5000
+    )
+
+    assert result == 30.0

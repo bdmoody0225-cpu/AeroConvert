@@ -62,4 +62,23 @@ class Aircraft:
             wing_area
         )
 
+    def lift_to_drag_ratio(
+            self,
+            lift_force: float,
+            drag_force: float,
+    ) -> float:
+
+        """
+        Calculates aircraft lift-to-drag-ratio.
+        """
+
+        if drag_force <= 0:
+            raise ValueError(
+                "Drag force must be greater than zero."
+            )
+
+        return (
+            lift_force /
+            drag_force
+        )
     
