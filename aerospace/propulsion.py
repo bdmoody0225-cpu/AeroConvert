@@ -189,4 +189,61 @@ class Propulsion:
             exit_area / 
             throat_area
         )
-    
+
+    def thrust_coefficient(
+            self,
+            thrust: float,
+            chamber_pressure: float,
+            throat_area: float
+    ) -> float:
+
+        """
+        Calculate rocket nozzle thrust coefficient.
+        """
+
+        if chamber_pressure <= 0:
+            raise ValueError(
+                "Chamber pressure must be greater than zero."
+            )
+
+        if throat_area <= 0:
+            raise ValueError(
+                "Throat area must be greater than zero."
+            )
+
+        return (
+            thrust /
+            (chamber_pressure * throat_area)
+        )
+
+    def characteristic_velocity(
+            self,
+            chamber_pressure: float,
+            throat_area: float,
+            mass_flow_rate: float
+    ) -> float:
+
+        """
+        Calculates characteristic velocity.
+        """
+
+        if chamber_pressure <=0:
+            raise ValueError(
+                "Chamber pressure must be greater than zero."
+            )
+
+        if throat_area <= 0:
+            raise ValueError(
+                "Throat area must be greater than zero."
+            )
+
+        if mass_flow_rate <= 0:
+            raise ValueError(
+                "Mass flow rate must be greater than zero."
+            )
+
+        return (
+            chamber_pressure *
+            throat_area /
+            mass_flow_rate
+        )

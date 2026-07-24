@@ -86,3 +86,51 @@ def test_expansion_ratio_zero_throat():
             throat_area=0
         )
 
+def test_thrust_coefficient():
+
+    rocket = Propulsion()
+
+    result = rocket.thrust_coefficient(
+        thrust=100000,
+        chamber_pressure=7000000,
+        throat_area=0.01
+    )
+
+    assert round(result, 3) == 1.429
+
+def test_thrust_coefficient_zero_area():
+
+    rocket = Propulsion()
+
+    with pytest.raises(ValueError):
+        rocket.thrust_coefficient(
+            thrust=100000,
+            chamber_pressure=7000000,
+            throat_area=0
+        )
+
+def test_characteristic_velocity():
+
+    rocket = Propulsion()
+
+    result = rocket.characteristic_velocity(
+        chamber_pressure=7000000,
+        throat_area=0.01,
+        mass_flow_rate=5
+    )
+
+    assert result == 14000.0
+
+def test_characteristic_velocity_zero_flow():
+
+    rocket = Propulsion()
+
+    with pytest.raises(ValueError):
+        rocket.characteristic_velocity(
+            chamber_pressure=7000000,
+            throat_area=0.01,
+            mass_flow_rate=0
+        )
+
+
+
