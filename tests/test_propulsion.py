@@ -286,3 +286,23 @@ def test_turbofan_negative_bypass():
             flight_velocity=250
         )
 
+def test_tsfc():
+
+    engine = Propulsion()
+
+    result = engine.tsfc(
+        fuel_flow_rate=1,
+        thrust=100000
+    )
+
+    assert result == 0.00001
+
+def test_tsfc_zero_thrust():
+
+    engine = Propulsion()
+
+    with pytest.raises(ValueError):
+        engine.tsfc(
+            fuel_flow_rate=1,
+            thrust=0
+        )

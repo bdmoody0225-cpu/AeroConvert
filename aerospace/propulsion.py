@@ -422,4 +422,29 @@ class Propulsion:
             bypass_thrust
         )
 
+    def tsfc(
+            self,
+            fuel_flow_rate: float,
+            thrust: float
+    ) -> float:
+
+        """
+        Calculate thrust specific fuel consumption.
+        """
+
+        if fuel_flow_rate <= 0:
+            raise ValueError(
+                "Fuel flow rate must be greater than zero."
+            )
+
+        if thrust <= 0: 
+            raise ValueError(
+                "Thrust must be greater than zero."
+            )
+
+        return (
+            fuel_flow_rate /
+            thrust
+        )
+
     
