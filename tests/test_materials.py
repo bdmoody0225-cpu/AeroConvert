@@ -43,3 +43,25 @@ def test_stress_zero_area():
             force=10000,
             area=0
         )
+
+def test_strain():
+
+    material = Materials()
+
+    result = material.strain(
+        change_length=0.002,
+        original_length=1
+    )
+
+    assert result == 0.002
+
+def test_strain_zero_length():
+
+    material = Materials()
+
+    with pytest.raises(ValueError):
+        material.strain(
+            change_length=0.002,
+            original_length=0
+        )
+

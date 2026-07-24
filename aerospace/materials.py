@@ -50,4 +50,24 @@ class Materials:
             area
         )
 
+    def strain(
+            self,
+            change_length: float,
+            original_length: float
+    ) -> float:
+
+        """
+        Calculate normal strain.
+        """
+
+        if original_length <= 0:
+            raise ValueError(
+                "Original length must be greater than zero."
+            )
+
+        return (
+            change_length /
+            original_length
+        )
+
     
