@@ -86,3 +86,27 @@ def test_youngs_modulus_zero_strain():
             strain=0
         )
 
+def test_thermal_expansion():
+
+    material = Materials()
+
+    result = material.thermal_expansion(
+        coefficient=23e-6,
+        original_length=2,
+        temperature_change=100
+    )
+
+    assert result == 0.0046
+
+def test_thermal_expansion_zero_length():
+
+    material = Materials()
+
+    with pytest.raises(ValueError):
+        material.thermal_expansion(
+            coefficient=23e-6,
+            original_length=0,
+            temperature_change=100
+        )
+
+        

@@ -89,3 +89,31 @@ class Materials:
             stress /
             strain
         )
+
+    def thermal_expansion(
+            self,
+            coefficient: float,
+            original_length: float,
+            temperature_change: float
+    ) -> float:
+
+        """
+        Calculate thermal expansion.
+        """
+
+        if original_length <= 0:
+            raise ValueError(
+                "Original length must be greater than zero."
+            )
+
+        if coefficient < 0:
+            raise ValueError(
+                "Coefficient cannot be negative."
+            )
+
+        return (
+            coefficient *
+            original_length *
+            temperature_change
+        )
+    
