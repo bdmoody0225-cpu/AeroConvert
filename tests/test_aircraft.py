@@ -1,5 +1,5 @@
 from aerospace.aircraft import Aircraft
-
+import pytest
 
 def test_lift():
 
@@ -50,3 +50,24 @@ def test_stall_speed():
     )
 
     assert round(result, 1) == 26.1
+
+def test_wing_loading():
+
+    aircraft = Aircraft()
+
+    result = aircraft.wing_loading(
+        weight=10000,
+        wing_area=20
+    )
+
+    assert result == 500.0
+
+def test_wing_loading_zero_area():
+
+    aircraft = Aircraft()
+
+    with pytest.raises(ValueError):
+        aircraft.wing_loading(
+            weight=10000,
+            wing_area=0
+        )

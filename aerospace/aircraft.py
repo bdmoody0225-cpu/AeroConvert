@@ -104,3 +104,23 @@ class Aircraft:
             (2 * weight) /
             (density * wing_area * cl_max)
         )
+
+    def wing_loading(
+            self,
+            weight: float,
+            wing_area: float
+    ) -> float:
+
+        """
+        Calculates aircraft wing-loading.
+        """
+
+        if wing_area <= 0:
+            raise ValueError(
+                "Wing area must be greater than zero."
+            )
+
+        return (
+            weight /
+            wing_area
+        )
