@@ -8,6 +8,9 @@ Version: 1.0.0
 """
 
 from aerospace.aerodynamics import Aerodynamics
+from aerospace.atmosphere import StandardAtmosphere
+
+import math
 
 class Aircraft:
     """
@@ -16,6 +19,7 @@ class Aircraft:
 
     def __init__(self):
         self.aero = Aerodynamics()
+        self.atmosphere = StandardAtmosphere()
 
     def lift(
             self,
@@ -81,4 +85,22 @@ class Aircraft:
             lift_force /
             drag_force
         )
-    
+
+    def stall_speed(
+            self,
+            altitude: float,
+            weight: float,
+            wing_area: float,
+            cl_max: float
+    ) -> float:
+
+        """
+        Calculate aircraft stall speed.
+        """
+
+        density = self.atmosphere.density(altitude)
+
+        return math.sqrt(
+            (2 * weight) /
+            (density * wing_area * cl_max)
+        )

@@ -37,3 +37,16 @@ def test_lift_to_drag_ratio():
     )
 
     assert result == 30.0
+
+def test_stall_speed():
+
+    aircraft = Aircraft()
+
+    result = aircraft.stall_speed(
+        altitude=0,
+        weight=10000,
+        wing_area=16,
+        cl_max=1.5
+    )
+
+    assert round(result, 1) == 26.1
