@@ -29,3 +29,25 @@ class Materials:
             )
 
         return density * GRAVITY
+
+    def stress(
+            self,
+            force: float,
+            area: float
+    ) -> float:
+
+        """
+        Calculate normal stress.
+        """
+
+        if area <= 0:
+            raise ValueError(
+                "Area must be greater than zero."
+            )
+
+        return (
+            force /
+            area
+        )
+
+    
