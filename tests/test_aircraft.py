@@ -92,3 +92,24 @@ def test_thrust_to_weight_ratio_zero_weight():
             thrust=5000,
             weight=0
         )
+
+def test_load_factor():
+
+    aircraft = Aircraft()
+
+    result = aircraft.load_factor(
+        lift=15000,
+        weight=10000
+    )
+
+    assert result == 1.5
+
+def test_load_factor_zero_weight():
+
+    aircraft = Aircraft()
+
+    with pytest.raises(ValueError):
+        aircraft.load_factor(
+            lift=15000,
+            weight=0
+        )

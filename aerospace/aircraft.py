@@ -145,4 +145,24 @@ class Aircraft:
             weight
         )
 
+    def load_factor(
+            self,
+            lift: float,
+            weight: float
+    ) -> float:
+
+        """
+        Calculate aircraft load factor.
+        """
+
+        if weight <= 0:
+            raise ValueError(
+                "Weight must be greater than zero."
+            )
+
+        return (
+            lift /
+            weight
+        )
+
     
