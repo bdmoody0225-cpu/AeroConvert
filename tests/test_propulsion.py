@@ -199,3 +199,17 @@ def test_pressure_thrust_zero_area():
             exit_area=0
         )
 
+def test_rocket_thrust():
+
+    rocket = Propulsion()
+
+    result = rocket.rocket_thrust(
+        mass_flow_rate=10,
+        exhaust_velocity=2000,
+        flight_velocity=500,
+        exit_pressure=200000,
+        ambient_pressure=101325,
+        exit_area=0.5
+    )
+
+    assert result == 64337.5

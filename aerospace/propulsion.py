@@ -311,4 +311,35 @@ class Propulsion:
             exit_area
         )
 
+    def rocket_thrust(
+            self,
+            mass_flow_rate: float,
+            exhaust_velocity: float,
+            flight_velocity: float,
+            exit_pressure: float,
+            ambient_pressure: float,
+            exit_area: float
+    ) -> float:
+
+        """
+        Calculates total rocket thrust.
+        """
+
+        momentum = self.momentum_thrust(
+            mass_flow_rate,
+            exhaust_velocity,
+            flight_velocity
+        )
+
+        pressure = self.pressure_thrust(
+            exit_pressure,
+            ambient_pressure,
+            exit_area
+        )
+
+        return (
+            momentum +
+            pressure
+        )
+
     
