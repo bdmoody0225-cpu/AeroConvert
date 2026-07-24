@@ -289,4 +289,26 @@ class Propulsion:
             (exhaust_velocity - flight_velocity)
         )
 
+    def pressure_thrust(
+            self,
+            exit_pressure: float,
+            ambient_pressure: float,
+            exit_area: float
+    ) -> float:
+
+        """
+        Calculates pressure thrust.
+        """
+
+        if exit_area <= 0:
+            raise ValueError(
+                "Exit area must be greater than zero"
+            )
+
+        return (
+            (exit_pressure - ambient_pressure)
+            *
+            exit_area
+        )
+
     

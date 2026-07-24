@@ -175,3 +175,27 @@ def test_momentum_thrust_zero_flow():
             exhaust_velocity=2000,
             flight_velocity=500
         )
+
+def test_pressure_thrust():
+
+    rocket = Propulsion()
+
+    result = rocket.pressure_thrust(
+        exit_pressure=200000,
+        ambient_pressure=101325,
+        exit_area=0.5
+    )
+
+    assert result == 49337.5
+
+def test_pressure_thrust_zero_area():
+
+    rocket = Propulsion()
+
+    with pytest.raises(ValueError):
+        rocket.pressure_thrust(
+            exit_pressure=200000,
+            ambient_pressure=101325,
+            exit_area=0
+        )
+
