@@ -153,3 +153,25 @@ def test_propulsive_efficiency_zero_exhaust():
             exhaust_velocity=0
         )
 
+def test_momentum_thrust():
+
+    rocket = Propulsion()
+
+    result = rocket.momentum_thrust(
+        mass_flow_rate=10,
+        exhaust_velocity=2000,
+        flight_velocity=500
+    )
+
+    assert result == 15000
+
+def test_momentum_thrust_zero_flow():
+
+    rocket = Propulsion()
+
+    with pytest.raises(ValueError):
+        rocket.momentum_thrust(
+            mass_flow_rate=0,
+            exhaust_velocity=2000,
+            flight_velocity=500
+        )
