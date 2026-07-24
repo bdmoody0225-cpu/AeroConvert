@@ -119,5 +119,53 @@ class Propulsion:
             )
         )
 
-    
-    
+    def nozzle_exit_velocity(
+            self,
+            gamma: float,
+            gas_constant: float,
+            chamber_temperature: float,
+            chamber_pressure: float,
+            exit_pressure: float
+    ) -> float:
+
+        """
+        Calculate rocket nozzle exit velocity.
+        """
+
+        if chamber_pressure <= 0:
+            raise ValueError(
+                "Chamber pressure must be greater than zero."
+            )
+
+        if exit_pressure <= 0:
+            raise ValueError(
+                "Exit pressure must be greater than zero."
+            )
+
+        if exit_pressure >= chamber_pressure:
+            raise ValueError(
+                "Exit pressure must be lower than chamber pressure."
+            )
+
+        return (
+            (
+                2 * gamma /
+                (gamma - 1)
+            )
+            *
+            gas_constant *
+            chamber_temperature
+            *
+            (
+                1 -
+                (
+                    exit_pressure /
+                    chamber_pressure
+                )
+                **
+                (
+                    (gamma - 1) /
+                    gamma
+                )
+            )
+        ) ** 0.5
