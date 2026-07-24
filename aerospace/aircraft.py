@@ -186,4 +186,24 @@ class Aircraft:
             weight
         )
 
+    def glide_ratio(
+            self,
+            horizontal_distance: float,
+            altitude_loss: float,
+    ) -> float:
+
+        """
+        Calculate aircraft glide ratio.
+        """
+
+        if altitude_loss <= 0:
+            raise ValueError(
+                "Altitude loss must be greater than zero."
+            )
+
+        return (
+            horizontal_distance /
+            altitude_loss
+        )
+
     

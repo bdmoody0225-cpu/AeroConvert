@@ -137,3 +137,23 @@ def test_rate_of_climb_zero_weight():
             weight=0
         )
 
+def test_glide_ratio():
+
+    aircraft = Aircraft()
+
+    result = aircraft.glide_ratio(
+        horizontal_distance=15000,
+        altitude_loss=1000
+    )
+
+    assert result == 15.0
+
+def test_glide_ratio_zero_altitude_loss():
+
+    aircraft = Aircraft()
+
+    with pytest.raises(ValueError):
+        aircraft.glide_ratio(
+            horizontal_distance=15000,
+            altitude_loss=0
+        )
