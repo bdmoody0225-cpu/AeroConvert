@@ -327,3 +327,24 @@ def test_thermal_efficiency_zero_heat():
             power_output=500000,
             heat_input=0
         )
+
+def test_overall_efficiency():
+
+    engine = Propulsion()
+
+    result = engine.overall_efficiency(
+        thermal_efficiency=0.5,
+        propulsive_efficiency=0.8
+    )
+
+    assert result == 0.4
+
+def test_overall_efficiency_negative():
+
+    engine = Propulsion()
+
+    with pytest.raises(ValueError):
+        engine.overall_efficiency(
+            thermal_efficiency=-0.5,
+            propulsive_efficiency=0.8
+        )

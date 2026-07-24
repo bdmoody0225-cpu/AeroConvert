@@ -467,4 +467,28 @@ class Propulsion:
             heat_input
         )
 
+    def overall_efficiency(
+            self,
+            thermal_efficiency: float,
+            propulsive_efficiency: float
+    ) -> float:
+
+        """
+        Calculates overall propulsion efficiency.
+        """
+
+        if thermal_efficiency < 0:
+            raise ValueError(
+                "Thermal efficiency cannot be negative."
+            )
+
+        if propulsive_efficiency < 0:
+            raise ValueError(
+                "Propulsive efficiency cannot be negative."
+            )
+
+        return (
+            thermal_efficiency *
+            propulsive_efficiency
+        )
     
