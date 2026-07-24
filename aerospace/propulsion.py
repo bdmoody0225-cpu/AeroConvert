@@ -363,4 +363,23 @@ class Propulsion:
             (exhaust_velocity - flight_velocity)
         )
 
+    def bypass_ratio(
+            self,
+            bypass_mass_flow: float,
+            core_mass_flow: float
+    ) -> float:
+
+        """
+        Calculate turbofan bypass ratio.
+        """
+
+        if core_mass_flow <= 0:
+            raise ValueError(
+                "Core mass flow must be greater than zero."
+            )
+
+        return (
+            bypass_mass_flow /
+            core_mass_flow
+        )
     

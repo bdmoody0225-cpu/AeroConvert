@@ -237,3 +237,24 @@ def test_turbojet_thrust_zero_flow():
             exhaust_velocity=800,
             flight_velocity=250
         )
+
+def test_bypass_ratio_zero_core_flow():
+
+    engine = Propulsion()
+
+    with pytest.raises(ValueError):
+        engine.bypass_ratio(
+            bypass_mass_flow=900,
+            core_mass_flow=0
+        )
+
+def test_bypass_ratio():
+
+    engine = Propulsion()
+
+    result = engine.bypass_ratio(
+        bypass_mass_flow=900,
+        core_mass_flow=100
+    )
+
+    assert result == 9.0
