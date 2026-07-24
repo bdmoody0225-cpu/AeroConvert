@@ -213,3 +213,27 @@ def test_rocket_thrust():
     )
 
     assert result == 64337.5
+
+def test_turbojet_thrust():
+
+    engine = Propulsion()
+
+    result = engine.turbojet_thrust(
+        mass_flow_rate=50,
+        exhaust_velocity=800,
+        flight_velocity=250
+    )
+
+    assert result == 27500
+
+
+def test_turbojet_thrust_zero_flow():
+
+    engine = Propulsion()
+
+    with pytest.raises(ValueError):
+        engine.turbojet_thrust(
+            mass_flow_rate=0,
+            exhaust_velocity=800,
+            flight_velocity=250
+        )

@@ -342,4 +342,25 @@ class Propulsion:
             pressure
         )
 
+    def turbojet_thrust(
+            self,
+            mass_flow_rate: float,
+            exhaust_velocity: float,
+            flight_velocity: float
+    ) -> float:
+
+        """
+        Calculates turbojet momentum thrust.
+        """
+
+        if mass_flow_rate <= 0:
+            raise ValueError(
+                "Mass flow rate must be greater than zero."
+            )
+
+        return (
+            mass_flow_rate *
+            (exhaust_velocity - flight_velocity)
+        )
+
     
