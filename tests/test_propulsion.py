@@ -258,3 +258,31 @@ def test_bypass_ratio():
     )
 
     assert result == 9.0
+
+def test_turbofan_thrust():
+
+    engine = Propulsion()
+
+    result = engine.turbofan_thrust(
+        core_mass_flow=100,
+        bypass_mass_flow=900,
+        core_exit_velocity=900,
+        bypass_exit_velocity=350,
+        flight_velocity=250
+    )
+
+    assert result == 155000
+
+def test_turbofan_negative_bypass():
+
+    engine = Propulsion()
+
+    with pytest.raises(ValueError):
+        engine.turbofan_thrust(
+            core_mass_flow=100,
+            bypass_mass_flow=-1,
+            core_exit_velocity=900,
+            bypass_exit_velocity=350,
+            flight_velocity=250
+        )
+

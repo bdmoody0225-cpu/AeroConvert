@@ -382,4 +382,44 @@ class Propulsion:
             bypass_mass_flow /
             core_mass_flow
         )
+
+    def turbofan_thrust(
+            self,
+            core_mass_flow: float,
+            bypass_mass_flow: float,
+            core_exit_velocity: float,
+            bypass_exit_velocity: float,
+            flight_velocity: float
+    ) -> float:
+
+        """
+        Calculate turbofan thrust.
+        """
+
+        if core_mass_flow <= 0:
+            raise ValueError(
+                "Core mass flow must be greater than zero."
+            )
+
+        if bypass_mass_flow <= 0:
+            raise ValueError(
+                "Bypass mass flow must be greater than zero."
+            )
+
+        core_thrust = (
+            core_mass_flow *
+            (core_exit_velocity - flight_velocity)
+        )
+
+        bypass_thrust = (
+            bypass_mass_flow *
+            (bypass_exit_velocity - flight_velocity)
+        )
+
+
+        return (
+            core_thrust +
+            bypass_thrust
+        )
+
     
