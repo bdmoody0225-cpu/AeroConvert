@@ -247,3 +247,25 @@ class Propulsion:
             throat_area /
             mass_flow_rate
         )
+
+    def propulsive_efficiency(
+            self,
+            vehicle_velocity: float,
+            exhaust_velocity: float
+    ) -> float:
+
+        """
+        Calculates propulsive efficiency.
+        """
+
+        if exhaust_velocity <= 0:
+            raise ValueError(
+                "Exhaust velocity must be greater than zero."
+            )
+
+        return (
+            (2 * vehicle_velocity) /
+            (vehicle_velocity + exhaust_velocity)
+        )
+
+    

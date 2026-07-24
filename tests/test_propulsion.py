@@ -132,5 +132,24 @@ def test_characteristic_velocity_zero_flow():
             mass_flow_rate=0
         )
 
+def test_propulsive_efficiency():
 
+    rocket = Propulsion()
+
+    result = rocket.propulsive_efficiency(
+        vehicle_velocity=1000,
+        exhaust_velocity=3000
+    )
+
+    assert round(result, 3) == 0.5
+
+def test_propulsive_efficiency_zero_exhaust():
+
+    rocket = Propulsion()
+
+    with pytest.raises(ValueError):
+        rocket.propulsive_efficiency(
+            vehicle_velocity=1000,
+            exhaust_velocity=0
+        )
 
