@@ -447,4 +447,24 @@ class Propulsion:
             thrust
         )
 
+    def thermal_efficiency(
+            self,
+            power_output: float,
+            heat_input: float
+    ) -> float:
+
+        """
+        Calculates thermal efficiency.
+        """
+
+        if heat_input <= 0:
+            raise ValueError(
+                "Heat input must be greater than zero."
+            )
+
+        return (
+            power_output /
+            heat_input
+        )
+
     

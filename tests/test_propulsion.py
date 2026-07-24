@@ -306,3 +306,24 @@ def test_tsfc_zero_thrust():
             fuel_flow_rate=1,
             thrust=0
         )
+
+def test_thermal_efficiency():
+
+    engine = Propulsion()
+
+    result = engine.thermal_efficiency(
+        power_output=500000,
+        heat_input=1000000
+    )
+
+    assert result == 0.5
+
+def test_thermal_efficiency_zero_heat():
+
+    engine = Propulsion()
+
+    with pytest.raises(ValueError):
+        engine.thermal_efficiency(
+            power_output=500000,
+            heat_input=0
+        )
