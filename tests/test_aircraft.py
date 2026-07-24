@@ -157,3 +157,4 @@ def test_glide_ratio_zero_altitude_loss():
             horizontal_distance=15000,
             altitude_loss=0
         )
+
