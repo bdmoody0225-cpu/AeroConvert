@@ -71,3 +71,24 @@ def test_wing_loading_zero_area():
             weight=10000,
             wing_area=0
         )
+
+def test_thrust_to_weight_ratio():
+
+    aircraft = Aircraft()
+
+    result = aircraft.thrust_to_weight_ratio(
+        thrust=5000,
+        weight=10000
+    )
+
+    assert result == 0.5
+
+def test_thrust_to_weight_ratio_zero_weight():
+
+    aircraft = Aircraft()
+
+    with pytest.raises(ValueError):
+        aircraft.thrust_to_weight_ratio(
+            thrust=5000,
+            weight=0
+        )

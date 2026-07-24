@@ -124,3 +124,25 @@ class Aircraft:
             weight /
             wing_area
         )
+
+    def thrust_to_weight_ratio(
+            self,
+            thrust: float,
+            weight: float,
+    ) -> float:
+
+        """
+        Calculate aircraft thrust-to-weight ratio.
+        """
+
+        if weight <= 0:
+            raise ValueError(
+                "Weight must be greater than zero."
+            )
+
+        return (
+            thrust /
+            weight
+        )
+
+    
