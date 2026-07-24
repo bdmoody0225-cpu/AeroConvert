@@ -65,3 +65,24 @@ def test_strain_zero_length():
             original_length=0
         )
 
+def test_youngs_modulus():
+
+    material = Materials()
+
+    result = material.youngs_modulus(
+        stress=70000000,
+        strain=0.001
+    )
+
+    assert result == 70000000000.0
+
+def test_youngs_modulus_zero_strain():
+
+    material = Materials()
+
+    with pytest.raises(ValueError):
+        material.youngs_modulus(
+            stress=70000000,
+            strain=0
+        )
+

@@ -70,4 +70,22 @@ class Materials:
             original_length
         )
 
-    
+    def youngs_modulus(
+            self,
+            stress: float,
+            strain: float
+    ) -> float:
+
+        """
+        Calculate Young's Modulus.
+        """
+
+        if strain <= 0:
+            raise ValueError(
+                "Strain must be greater than zero."
+            )
+
+        return (
+            stress /
+            strain
+        )
