@@ -65,3 +65,24 @@ def test_nozzle_exit_velocity_invalid_pressure():
             exit_pressure=7000000
         )
 
+def test_expansion_ratio():
+
+    rocket = Propulsion()
+
+    result = rocket.expansion_ratio(
+        exit_area=1.0,
+        throat_area=0.05
+    )
+
+    assert result == 20.0
+
+def test_expansion_ratio_zero_throat():
+
+    rocket = Propulsion()
+
+    with pytest.raises(ValueError):
+        rocket.expansion_ratio(
+            exit_area=1.0,
+            throat_area=0
+        )
+

@@ -169,3 +169,24 @@ class Propulsion:
                 )
             )
         ) ** 0.5
+
+    def expansion_ratio(
+            self,
+            exit_area: float,
+            throat_area: float
+    ) -> float:
+
+        """
+        Calculate nozzle expansion ratio.
+        """
+
+        if throat_area <= 0:
+            raise ValueError(
+                "Throat area must be greater than zero."
+            )
+
+        return (
+            exit_area / 
+            throat_area
+        )
+    
