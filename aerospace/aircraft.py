@@ -165,4 +165,25 @@ class Aircraft:
             weight
         )
 
+    def rate_of_climb(
+            self,
+            power_available: float,
+            power_required: float,
+            weight: float
+    ) -> float:
+
+        """
+        Calculate aircraft rate of climb.
+        """
+
+        if weight <= 0:
+            raise ValueError(
+                "Weight must be greater than zero."
+            )
+
+        return (
+            (power_available - power_required) /
+            weight
+        )
+
     

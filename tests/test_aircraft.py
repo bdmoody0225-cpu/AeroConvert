@@ -113,3 +113,27 @@ def test_load_factor_zero_weight():
             lift=15000,
             weight=0
         )
+
+def test_rate_of_climb():
+
+    aircraft = Aircraft()
+
+    result = aircraft.rate_of_climb(
+        power_available=300000,
+        power_required=200000,
+        weight=10000
+    )
+
+    assert result == 10.0
+
+def test_rate_of_climb_zero_weight():
+
+    aircraft = Aircraft()
+
+    with pytest.raises(ValueError):
+        aircraft.rate_of_climb(
+            power_available=300000,
+            power_required=200000,
+            weight=0
+        )
+
